@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Test_exercise</string>
+    <string name="open_menu">打开菜单栏</string>
+    <string name="close_menu">关闭菜单栏</string>
+    <string name="action_settings">设置1</string>
+    <string name="action_collect">设置2</string>
 </resources>

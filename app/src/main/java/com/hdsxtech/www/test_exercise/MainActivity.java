@@ -76,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
                 downloadBinder.pauseDownload();
                 break;
             case R.id.button_goon:
-                new Intent(this,Weather.class);
-                startActivity();
+                Intent intent = new Intent(this, Weather.class);
+                startActivity(intent);
+                break;
+            default:
                 break;
         }
     }
