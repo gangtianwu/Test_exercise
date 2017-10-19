@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.hdsxtech.www.test_exercise.weather.Weather;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 downloadBinder.pauseDownload();
                 break;
             case R.id.button_goon:
+                new Intent(this,Weather.class);
+                startActivity();
                 break;
         }
     }

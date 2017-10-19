@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_donwload" />
     <Button
 
-        android:text="continue"
+        android:text="另一个界面"
         android:id="@+id/button_goon"
         android:layout_width="109dp"
         android:layout_height="49dp"
