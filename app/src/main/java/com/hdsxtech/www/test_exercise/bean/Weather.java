@@ -2,14 +2,11 @@ package com.hdsxtech.www.test_exercise.bean;
 
 import java.util.List;
 
-import io.realm.RealmObject;
-
 /**
  * 作者:丁文 on 2017/10/19.
  * copyright: www.tpri.org.cn
  */
-
-public class Weather extends RealmObject {
+public class Weather {
 
     private List<HeWeatherBean> HeWeather;
 
@@ -23,13 +20,13 @@ public class Weather extends RealmObject {
 
     public static class HeWeatherBean {
         /**
-         * aqi : {"city":{"aqi":"47","co":"1","no2":"33","o3":"79","pm10":"47","pm25":"29","qlty":"优","so2":"10"}}
-         * basic : {"city":"上海","cnty":"中国","id":"CN101020100","lat":"31.23170662","lon":"121.47264099","update":{"loc":"2017-10-19 16:46","utc":"2017-10-19 08:46"}}
-         * daily_forecast : [{"astro":{"mr":"05:11","ms":"17:17","sr":"05:59","ss":"17:18"},"cond":{"code_d":"305","code_n":"305","txt_d":"小雨","txt_n":"小雨"},"date":"2017-10-19","hum":"68","pcpn":"0.0","pop":"30","pres":"1018","tmp":{"max":"21","min":"17"},"uv":"5","vis":"15","wind":{"deg":"5","dir":"北风","sc":"微风","spd":"14"}},{"astro":{"mr":"06:07","ms":"17:52","sr":"06:00","ss":"17:17"},"cond":{"code_d":"101","code_n":"101","txt_d":"多云","txt_n":"多云"},"date":"2017-10-20","hum":"66","pcpn":"1.1","pop":"92","pres":"1018","tmp":{"max":"23","min":"17"},"uv":"6","vis":"19","wind":{"deg":"10","dir":"北风","sc":"微风","spd":"14"}},{"astro":{"mr":"07:03","ms":"18:27","sr":"06:01","ss":"17:16"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-21","hum":"61","pcpn":"0.0","pop":"0","pres":"1016","tmp":{"max":"23","min":"17"},"uv":"6","vis":"20","wind":{"deg":"3","dir":"北风","sc":"3-4","spd":"20"}},{"astro":{"mr":"07:58","ms":"19:05","sr":"06:01","ss":"17:15"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-22","hum":"59","pcpn":"0.0","pop":"0","pres":"1014","tmp":{"max":"22","min":"16"},"uv":"6","vis":"20","wind":{"deg":"353","dir":"北风","sc":"3-4","spd":"20"}},{"astro":{"mr":"08:52","ms":"19:46","sr":"06:02","ss":"17:14"},"cond":{"code_d":"305","code_n":"100","txt_d":"小雨","txt_n":"晴"},"date":"2017-10-23","hum":"64","pcpn":"0.0","pop":"0","pres":"1017","tmp":{"max":"21","min":"13"},"uv":"4","vis":"19","wind":{"deg":"325","dir":"西北风","sc":"微风","spd":"14"}},{"astro":{"mr":"09:45","ms":"20:28","sr":"06:03","ss":"17:13"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-24","hum":"57","pcpn":"0.0","pop":"0","pres":"1024","tmp":{"max":"21","min":"13"},"uv":"5","vis":"20","wind":{"deg":"293","dir":"西北风","sc":"微风","spd":"4"}},{"astro":{"mr":"10:35","ms":"21:14","sr":"06:04","ss":"17:12"},"cond":{"code_d":"100","code_n":"104","txt_d":"晴","txt_n":"阴"},"date":"2017-10-25","hum":"52","pcpn":"0.0","pop":"0","pres":"1028","tmp":{"max":"20","min":"15"},"uv":"5","vis":"20","wind":{"deg":"13","dir":"东北风","sc":"微风","spd":"6"}}]
-         * hourly_forecast : [{"cond":{"code":"101","txt":"多云"},"date":"2017-10-19 19:00","hum":"80","pop":"55","pres":"1019","tmp":"18","wind":{"deg":"68","dir":"东北风","sc":"微风","spd":"12"}},{"cond":{"code":"103","txt":"晴间多云"},"date":"2017-10-19 22:00","hum":"79","pop":"24","pres":"1018","tmp":"18","wind":{"deg":"22","dir":"东北风","sc":"微风","spd":"10"}}]
-         * now : {"cond":{"code":"104","txt":"阴"},"fl":"19","hum":"67","pcpn":"0","pres":"1017","tmp":"19","vis":"7","wind":{"deg":"155","dir":"东南风","sc":"微风","spd":"4"}}
+         * aqi : {"city":{"aqi":"53","co":"1","no2":"46","o3":"60","pm10":"55","pm25":"24","qlty":"良","so2":"10"}}
+         * basic : {"city":"上海","cnty":"中国","id":"CN101020100","lat":"31.23170662","lon":"121.47264099","update":{"loc":"2017-10-20 09:46","utc":"2017-10-20 01:46"}}
+         * daily_forecast : [{"astro":{"mr":"06:07","ms":"17:52","sr":"06:00","ss":"17:17"},"cond":{"code_d":"101","code_n":"101","txt_d":"多云","txt_n":"多云"},"date":"2017-10-20","hum":"65","pcpn":"0.0","pop":"18","pres":"1018","tmp":{"max":"22","min":"17"},"uv":"6","vis":"19","wind":{"deg":"5","dir":"北风","sc":"3-4","spd":"21"}},{"astro":{"mr":"07:03","ms":"18:27","sr":"06:01","ss":"17:16"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-21","hum":"59","pcpn":"0.0","pop":"0","pres":"1016","tmp":{"max":"22","min":"17"},"uv":"6","vis":"19","wind":{"deg":"5","dir":"北风","sc":"3-4","spd":"20"}},{"astro":{"mr":"07:58","ms":"19:05","sr":"06:01","ss":"17:15"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-22","hum":"59","pcpn":"0.0","pop":"0","pres":"1013","tmp":{"max":"22","min":"16"},"uv":"6","vis":"20","wind":{"deg":"352","dir":"北风","sc":"3-4","spd":"21"}},{"astro":{"mr":"08:52","ms":"19:46","sr":"06:02","ss":"17:14"},"cond":{"code_d":"101","code_n":"100","txt_d":"多云","txt_n":"晴"},"date":"2017-10-23","hum":"56","pcpn":"0.0","pop":"0","pres":"1019","tmp":{"max":"22","min":"13"},"uv":"6","vis":"19","wind":{"deg":"291","dir":"西北风","sc":"3-4","spd":"18"}},{"astro":{"mr":"09:45","ms":"20:28","sr":"06:03","ss":"17:13"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-24","hum":"52","pcpn":"0.0","pop":"0","pres":"1026","tmp":{"max":"20","min":"13"},"uv":"6","vis":"20","wind":{"deg":"340","dir":"西北风","sc":"微风","spd":"4"}},{"astro":{"mr":"10:35","ms":"21:14","sr":"06:04","ss":"17:12"},"cond":{"code_d":"100","code_n":"100","txt_d":"晴","txt_n":"晴"},"date":"2017-10-25","hum":"53","pcpn":"0.0","pop":"0","pres":"1027","tmp":{"max":"21","min":"15"},"uv":"6","vis":"20","wind":{"deg":"32","dir":"东北风","sc":"微风","spd":"10"}},{"astro":{"mr":"11:23","ms":"22:03","sr":"06:04","ss":"17:11"},"cond":{"code_d":"100","code_n":"104","txt_d":"晴","txt_n":"阴"},"date":"2017-10-26","hum":"61","pcpn":"0.0","pop":"0","pres":"1022","tmp":{"max":"21","min":"16"},"uv":"6","vis":"20","wind":{"deg":"146","dir":"东南风","sc":"微风","spd":"5"}}]
+         * hourly_forecast : [{"cond":{"code":"103","txt":"晴间多云"},"date":"2017-10-20 10:00","hum":"55","pop":"0","pres":"1018","tmp":"19","wind":{"deg":"24","dir":"东北风","sc":"微风","spd":"15"}},{"cond":{"code":"101","txt":"多云"},"date":"2017-10-20 13:00","hum":"48","pop":"0","pres":"1017","tmp":"22","wind":{"deg":"27","dir":"东北风","sc":"微风","spd":"15"}},{"cond":{"code":"100","txt":"晴"},"date":"2017-10-20 16:00","hum":"55","pop":"0","pres":"1017","tmp":"21","wind":{"deg":"35","dir":"东北风","sc":"微风","spd":"16"}},{"cond":{"code":"100","txt":"晴"},"date":"2017-10-20 19:00","hum":"67","pop":"0","pres":"1018","tmp":"19","wind":{"deg":"32","dir":"东北风","sc":"微风","spd":"14"}},{"cond":{"code":"101","txt":"多云"},"date":"2017-10-20 22:00","hum":"67","pop":"0","pres":"1018","tmp":"17","wind":{"deg":"25","dir":"东北风","sc":"微风","spd":"16"}}]
+         * now : {"cond":{"code":"101","txt":"多云"},"fl":"20","hum":"67","pcpn":"0","pres":"1019","tmp":"20","vis":"7","wind":{"deg":"13","dir":"东北风","sc":"微风","spd":"6"}}
          * status : ok
-         * suggestion : {"air":{"brf":"良","txt":"气象条件有利于空气污染物稀释、扩散和清除，可在室外正常活动。"},"comf":{"brf":"舒适","txt":"白天不太热也不太冷，风力不大，相信您在这样的天气条件下，应会感到比较清爽和舒适。"},"cw":{"brf":"不宜","txt":"不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"},"drsg":{"brf":"较舒适","txt":"建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"},"flu":{"brf":"易发","txt":"天冷空气湿度大，易发生感冒，请注意适当增加衣服，加强自我防护避免感冒。"},"sport":{"brf":"较不宜","txt":"有降水，且风力较强，气压较低，推荐您在室内进行低强度运动；若坚持户外运动，须注意避雨防风。"},"trav":{"brf":"适宜","txt":"有降水，虽然风稍大，但温度适宜，适宜旅游，可不要错过机会呦！"},"uv":{"brf":"最弱","txt":"属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。"}}
+         * suggestion : {"air":{"brf":"良","txt":"气象条件有利于空气污染物稀释、扩散和清除，可在室外正常活动。"},"comf":{"brf":"舒适","txt":"白天不太热也不太冷，风力不大，相信您在这样的天气条件下，应会感到比较清爽和舒适。"},"cw":{"brf":"较不宜","txt":"较不宜洗车，未来一天无雨，风力较大，如果执意擦洗汽车，要做好蒙上污垢的心理准备。"},"drsg":{"brf":"较舒适","txt":"建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"},"flu":{"brf":"较易发","txt":"虽然温度适宜但风力较大，仍较易发生感冒，体质较弱的朋友请注意适当防护。"},"sport":{"brf":"较适宜","txt":"天气较好，但因风力稍强，户外可选择对风力要求不高的运动，推荐您进行室内运动。"},"trav":{"brf":"适宜","txt":"天气较好，温度适宜，但风稍微有点大。这样的天气适宜旅游，您可以尽情地享受大自然的无限风光。"},"uv":{"brf":"弱","txt":"紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"}}
          */
 
         private AqiBean aqi;
@@ -98,7 +95,7 @@ public class Weather extends RealmObject {
 
         public static class AqiBean {
             /**
-             * city : {"aqi":"47","co":"1","no2":"33","o3":"79","pm10":"47","pm25":"29","qlty":"优","so2":"10"}
+             * city : {"aqi":"53","co":"1","no2":"46","o3":"60","pm10":"55","pm25":"24","qlty":"良","so2":"10"}
              */
 
             private CityBean city;
@@ -113,13 +110,13 @@ public class Weather extends RealmObject {
 
             public static class CityBean {
                 /**
-                 * aqi : 47
+                 * aqi : 53
                  * co : 1
-                 * no2 : 33
-                 * o3 : 79
-                 * pm10 : 47
-                 * pm25 : 29
-                 * qlty : 优
+                 * no2 : 46
+                 * o3 : 60
+                 * pm10 : 55
+                 * pm25 : 24
+                 * qlty : 良
                  * so2 : 10
                  */
 
@@ -205,7 +202,7 @@ public class Weather extends RealmObject {
              * id : CN101020100
              * lat : 31.23170662
              * lon : 121.47264099
-             * update : {"loc":"2017-10-19 16:46","utc":"2017-10-19 08:46"}
+             * update : {"loc":"2017-10-20 09:46","utc":"2017-10-20 01:46"}
              */
 
             private String city;
@@ -265,8 +262,8 @@ public class Weather extends RealmObject {
 
             public static class UpdateBean {
                 /**
-                 * loc : 2017-10-19 16:46
-                 * utc : 2017-10-19 08:46
+                 * loc : 2017-10-20 09:46
+                 * utc : 2017-10-20 01:46
                  */
 
                 private String loc;
@@ -292,14 +289,14 @@ public class Weather extends RealmObject {
 
         public static class NowBean {
             /**
-             * cond : {"code":"104","txt":"阴"}
-             * fl : 19
+             * cond : {"code":"101","txt":"多云"}
+             * fl : 20
              * hum : 67
              * pcpn : 0
-             * pres : 1017
-             * tmp : 19
+             * pres : 1019
+             * tmp : 20
              * vis : 7
-             * wind : {"deg":"155","dir":"东南风","sc":"微风","spd":"4"}
+             * wind : {"deg":"13","dir":"东北风","sc":"微风","spd":"6"}
              */
 
             private CondBean cond;
@@ -377,8 +374,8 @@ public class Weather extends RealmObject {
 
             public static class CondBean {
                 /**
-                 * code : 104
-                 * txt : 阴
+                 * code : 101
+                 * txt : 多云
                  */
 
                 private String code;
@@ -403,10 +400,10 @@ public class Weather extends RealmObject {
 
             public static class WindBean {
                 /**
-                 * deg : 155
-                 * dir : 东南风
+                 * deg : 13
+                 * dir : 东北风
                  * sc : 微风
-                 * spd : 4
+                 * spd : 6
                  */
 
                 private String deg;
@@ -452,12 +449,12 @@ public class Weather extends RealmObject {
             /**
              * air : {"brf":"良","txt":"气象条件有利于空气污染物稀释、扩散和清除，可在室外正常活动。"}
              * comf : {"brf":"舒适","txt":"白天不太热也不太冷，风力不大，相信您在这样的天气条件下，应会感到比较清爽和舒适。"}
-             * cw : {"brf":"不宜","txt":"不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"}
+             * cw : {"brf":"较不宜","txt":"较不宜洗车，未来一天无雨，风力较大，如果执意擦洗汽车，要做好蒙上污垢的心理准备。"}
              * drsg : {"brf":"较舒适","txt":"建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"}
-             * flu : {"brf":"易发","txt":"天冷空气湿度大，易发生感冒，请注意适当增加衣服，加强自我防护避免感冒。"}
-             * sport : {"brf":"较不宜","txt":"有降水，且风力较强，气压较低，推荐您在室内进行低强度运动；若坚持户外运动，须注意避雨防风。"}
-             * trav : {"brf":"适宜","txt":"有降水，虽然风稍大，但温度适宜，适宜旅游，可不要错过机会呦！"}
-             * uv : {"brf":"最弱","txt":"属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。"}
+             * flu : {"brf":"较易发","txt":"虽然温度适宜但风力较大，仍较易发生感冒，体质较弱的朋友请注意适当防护。"}
+             * sport : {"brf":"较适宜","txt":"天气较好，但因风力稍强，户外可选择对风力要求不高的运动，推荐您进行室内运动。"}
+             * trav : {"brf":"适宜","txt":"天气较好，温度适宜，但风稍微有点大。这样的天气适宜旅游，您可以尽情地享受大自然的无限风光。"}
+             * uv : {"brf":"弱","txt":"紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"}
              */
 
             private AirBean air;
@@ -587,8 +584,8 @@ public class Weather extends RealmObject {
 
             public static class CwBean {
                 /**
-                 * brf : 不宜
-                 * txt : 不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。
+                 * brf : 较不宜
+                 * txt : 较不宜洗车，未来一天无雨，风力较大，如果执意擦洗汽车，要做好蒙上污垢的心理准备。
                  */
 
                 private String brf;
@@ -639,8 +636,8 @@ public class Weather extends RealmObject {
 
             public static class FluBean {
                 /**
-                 * brf : 易发
-                 * txt : 天冷空气湿度大，易发生感冒，请注意适当增加衣服，加强自我防护避免感冒。
+                 * brf : 较易发
+                 * txt : 虽然温度适宜但风力较大，仍较易发生感冒，体质较弱的朋友请注意适当防护。
                  */
 
                 private String brf;
@@ -665,8 +662,8 @@ public class Weather extends RealmObject {
 
             public static class SportBean {
                 /**
-                 * brf : 较不宜
-                 * txt : 有降水，且风力较强，气压较低，推荐您在室内进行低强度运动；若坚持户外运动，须注意避雨防风。
+                 * brf : 较适宜
+                 * txt : 天气较好，但因风力稍强，户外可选择对风力要求不高的运动，推荐您进行室内运动。
                  */
 
                 private String brf;
@@ -692,7 +689,7 @@ public class Weather extends RealmObject {
             public static class TravBean {
                 /**
                  * brf : 适宜
-                 * txt : 有降水，虽然风稍大，但温度适宜，适宜旅游，可不要错过机会呦！
+                 * txt : 天气较好，温度适宜，但风稍微有点大。这样的天气适宜旅游，您可以尽情地享受大自然的无限风光。
                  */
 
                 private String brf;
@@ -717,8 +714,8 @@ public class Weather extends RealmObject {
 
             public static class UvBean {
                 /**
-                 * brf : 最弱
-                 * txt : 属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。
+                 * brf : 弱
+                 * txt : 紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。
                  */
 
                 private String brf;
@@ -744,17 +741,17 @@ public class Weather extends RealmObject {
 
         public static class DailyForecastBean {
             /**
-             * astro : {"mr":"05:11","ms":"17:17","sr":"05:59","ss":"17:18"}
-             * cond : {"code_d":"305","code_n":"305","txt_d":"小雨","txt_n":"小雨"}
-             * date : 2017-10-19
-             * hum : 68
+             * astro : {"mr":"06:07","ms":"17:52","sr":"06:00","ss":"17:17"}
+             * cond : {"code_d":"101","code_n":"101","txt_d":"多云","txt_n":"多云"}
+             * date : 2017-10-20
+             * hum : 65
              * pcpn : 0.0
-             * pop : 30
+             * pop : 18
              * pres : 1018
-             * tmp : {"max":"21","min":"17"}
-             * uv : 5
-             * vis : 15
-             * wind : {"deg":"5","dir":"北风","sc":"微风","spd":"14"}
+             * tmp : {"max":"22","min":"17"}
+             * uv : 6
+             * vis : 19
+             * wind : {"deg":"5","dir":"北风","sc":"3-4","spd":"21"}
              */
 
             private AstroBean astro;
@@ -859,10 +856,10 @@ public class Weather extends RealmObject {
 
             public static class AstroBean {
                 /**
-                 * mr : 05:11
-                 * ms : 17:17
-                 * sr : 05:59
-                 * ss : 17:18
+                 * mr : 06:07
+                 * ms : 17:52
+                 * sr : 06:00
+                 * ss : 17:17
                  */
 
                 private String mr;
@@ -905,10 +902,10 @@ public class Weather extends RealmObject {
 
             public static class CondBeanX {
                 /**
-                 * code_d : 305
-                 * code_n : 305
-                 * txt_d : 小雨
-                 * txt_n : 小雨
+                 * code_d : 101
+                 * code_n : 101
+                 * txt_d : 多云
+                 * txt_n : 多云
                  */
 
                 private String code_d;
@@ -951,7 +948,7 @@ public class Weather extends RealmObject {
 
             public static class TmpBean {
                 /**
-                 * max : 21
+                 * max : 22
                  * min : 17
                  */
 
@@ -979,8 +976,8 @@ public class Weather extends RealmObject {
                 /**
                  * deg : 5
                  * dir : 北风
-                 * sc : 微风
-                 * spd : 14
+                 * sc : 3-4
+                 * spd : 21
                  */
 
                 private String deg;
@@ -1024,13 +1021,13 @@ public class Weather extends RealmObject {
 
         public static class HourlyForecastBean {
             /**
-             * cond : {"code":"101","txt":"多云"}
-             * date : 2017-10-19 19:00
-             * hum : 80
-             * pop : 55
-             * pres : 1019
-             * tmp : 18
-             * wind : {"deg":"68","dir":"东北风","sc":"微风","spd":"12"}
+             * cond : {"code":"103","txt":"晴间多云"}
+             * date : 2017-10-20 10:00
+             * hum : 55
+             * pop : 0
+             * pres : 1018
+             * tmp : 19
+             * wind : {"deg":"24","dir":"东北风","sc":"微风","spd":"15"}
              */
 
             private CondBeanXX cond;
@@ -1099,8 +1096,8 @@ public class Weather extends RealmObject {
 
             public static class CondBeanXX {
                 /**
-                 * code : 101
-                 * txt : 多云
+                 * code : 103
+                 * txt : 晴间多云
                  */
 
                 private String code;
@@ -1125,10 +1122,10 @@ public class Weather extends RealmObject {
 
             public static class WindBeanXX {
                 /**
-                 * deg : 68
+                 * deg : 24
                  * dir : 东北风
                  * sc : 微风
-                 * spd : 12
+                 * spd : 15
                  */
 
                 private String deg;

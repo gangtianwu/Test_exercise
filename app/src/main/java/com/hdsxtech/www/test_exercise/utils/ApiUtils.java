@@ -32,7 +32,7 @@ public class ApiUtils {
         apiService = retrofit.create(ApiService.class);
         return apiService;
     }
-    public static ApiService getInstance(){
+    public synchronized static ApiService getInstance(){
         if (apiService == null){
             getApiService();
         }
