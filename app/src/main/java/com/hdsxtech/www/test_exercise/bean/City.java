@@ -1,6 +1,7 @@
 package com.hdsxtech.www.test_exercise.bean;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * 作者:丁文 on 2017/10/19.
@@ -13,9 +14,18 @@ public class City extends RealmObject {
      * id : 311
      * name : 兰州
      */
-
+    private int provinceId;
     private int id;
+    @PrimaryKey
     private String name;
+
+    public int getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(int provinceId) {
+        this.provinceId = provinceId;
+    }
 
     public int getId() {
         return id;

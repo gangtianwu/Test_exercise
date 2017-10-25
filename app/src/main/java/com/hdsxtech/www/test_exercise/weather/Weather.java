@@ -17,6 +17,8 @@ import android.widget.RelativeLayout;
 
 import com.hdsxtech.www.test_exercise.R;
 import com.hdsxtech.www.test_exercise.api.ApiService;
+import com.hdsxtech.www.test_exercise.bean.City;
+import com.hdsxtech.www.test_exercise.bean.Country;
 import com.hdsxtech.www.test_exercise.bean.Province;
 import com.hdsxtech.www.test_exercise.utils.ApiUtils;
 import com.hdsxtech.www.test_exercise.utils.LogUtils;
@@ -26,6 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmResults;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -48,6 +51,7 @@ public class Weather extends AppCompatActivity implements NavigationView.OnNavig
     private Menu menu;
     private Realm realm;
     private ApiService apiService;
+    int PROVINCE = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +84,7 @@ public class Weather extends AppCompatActivity implements NavigationView.OnNavig
             @Override
             public void onCompleted() {
                 LogUtils.i("省级列表", "获取省市完成");
+                PROVINCE = 1;
             }
 
             @Override
@@ -97,9 +102,10 @@ public class Weather extends AppCompatActivity implements NavigationView.OnNavig
                         realm.executeTransactionAsync(new Realm.Transaction() {
                             @Override
                             public void execute(Realm realm) {
-                                Province province = realm.createObject(Province.class);
-                                province.setId(provinces.get(finalI).getId());
-                                province.setName(provinces.get(finalI).getName());
+                                realm.copyToRealmOrUpdate(provinces.get(finalI));
+//                                Province province = realm.createup(Province.class,provinces.get(finalI).getId());
+////                                province.setId(provinces.get(finalI).getId());
+//                                province.setName(provinces.get(finalI).getName());
                             }
                         });
                     } catch (Exception e) {
@@ -139,9 +145,7 @@ public class Weather extends AppCompatActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        CharSequence title = menu.getItem(item.getItemId()).getTitle();
-
-
+//        CharSequence title = menu.getItem(item.getItemId()).getTitle();
 //        apiService.getCity()
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -154,15 +158,131 @@ public class Weather extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        if (PROVINCE == 1)
+            doGetProvince(item);
+         if(PROVINCE == 2)
+            doGetCity(item);
+        if (PROVINCE == 3){
+            int id = item.getItemId();
+            doGetWeather(id);
+        }
 
-        int id = item.getItemId();
-        switchFragment(id);
-        drawerLayout.closeDrawer(GravityCompat.START);
+
+
+//        drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
 
-    private void switchFragment(int id) {
+    private void doGetWeather(int item) {
+        String title = (String) menu.getItem(item).getTitle();
+        Country name = realm.where(Country.class).equalTo("name", title).findFirst();
+        int cityId = name.getCityId();
+        String weather_id = name.getWeather_id();
+
+        switchFragment(cityId,weather_id);
+    }
+
+    private void doGetCity(MenuItem item) {
+        String title = (String) menu.getItem(item.getItemId()).getTitle();
+
+        LogUtils.i("title", title);
+        LogUtils.i("title_item", item.getItemId()+"");
+        City name = realm.where(City.class).equalTo("name", title).findFirst();
+         int provinceId = name.getProvinceId();
+        final int cityid = name.getId();
+
+        LogUtils.i("title", provinceId + "省级id");
+        LogUtils.i("title_item", cityid+"市级id");
+        Observable<List<Country>> observableCountry = apiService.getCountry(provinceId, cityid);
+        Subscriber<List<Country>> subscriber = new Subscriber<List<Country>>() {
+            @Override
+            public void onCompleted() {
+                LogUtils.i("区县级列表", "获取区县完成");
+                PROVINCE = 3;
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                LogUtils.i("区县级列表", "获取区县失败");
+            }
+
+            @Override
+            public void onNext(final List<Country> countries) {
+                menu.removeGroup(1);
+                LogUtils.i("青岛区县级列表", countries.size() + "青岛区县");
+                for (int i = 0; i < countries.size(); i++) {
+                    try {
+                        menu.add(1, i+1, 0, countries.get(i).getName());
+                        LogUtils.i("青岛区县级列表",countries.get(i).getName()+ "青岛区县");
+                        final int finalI = i;
+                        realm.executeTransactionAsync(new Realm.Transaction() {
+                            @Override
+                            public void execute(Realm realm) {
+                                countries.get(finalI).setCityId(cityid);
+                                realm.copyToRealmOrUpdate(countries.get(finalI));
+                            }
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        };
+        observableCountry.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+
+
+    }
+
+    private void doGetProvince(@NonNull MenuItem item) {
+        String title = (String) menu.getItem(item.getItemId()).getTitle();
+        RealmResults<Province> name = realm.where(Province.class).equalTo("name", title).findAll();
+        final int provinceId = name.get(0).getId();
+        Observable<List<City>> cityObservable = apiService.getCity(provinceId);
+        Subscriber<List<City>> subscriber = new Subscriber<List<City>>() {
+            @Override
+            public void onCompleted() {
+                LogUtils.i("市级列表", "获取市完成");
+                PROVINCE = 2;
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                LogUtils.i("市级列表", "获取市失败"+e);
+            }
+
+            @Override
+            public void onNext(final List<City> cities) {
+                LogUtils.i("市级列表数", cities.size() +"");
+                menu.removeGroup(1);
+                for (int i = 0; i < cities.size(); i++) {
+                    try {
+                        menu.add(1, i+1, 0, cities.get(i).getName());
+                        final int finalI = i;
+                        realm.executeTransactionAsync(new Realm.Transaction() {
+                            @Override
+                            public void execute(Realm realm) {
+                                cities.get(finalI).setProvinceId(provinceId);
+                                realm.copyToRealmOrUpdate(cities.get(finalI));
+                            }
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        cityObservable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+
+    private void switchFragment(int id, String weather_id) {
+
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         // TODO: 2017/10/19

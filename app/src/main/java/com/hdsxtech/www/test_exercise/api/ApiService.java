@@ -33,8 +33,8 @@ public interface ApiService {
     /**
      * 获取区县列表
      */
-    @GET("china/{id}/{id}")
-    Observable<List<Country>> getCountry(@Path("id") int id_province,@Path("id") int id_city);
+    @GET("china/{cityId}/{id}")
+    Observable<List<Country>> getCountry(@Path("cityId") int province,@Path("id") int city);
     /**
      * 获取天气状况
      */
